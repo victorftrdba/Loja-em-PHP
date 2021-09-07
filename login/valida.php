@@ -1,15 +1,13 @@
 <?php
-class Login {
+require_once('../Database/config.php');
+
+class Login extends Database {
     public static function fazerLogin() {
-        try {
-            $pdo = new PDO('mysql:host=localhost;dbname=lojaphp', 'root', 'dev102030');
-            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
-            $stmt->bindValue(':usuario', $_POST['usuario']);
-            $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_OBJ);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
+        $pdo = Database::index();
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
+        $stmt->bindValue(':usuario', $_POST['usuario']);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
 
         if ($result->usuario && $result->senha == md5($_POST['senha'])) {
             session_start();

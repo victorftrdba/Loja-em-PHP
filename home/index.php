@@ -38,8 +38,8 @@ if(!$_SESSION) {
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item->nome ?></h5>
                         <p class="card-text"><?php echo $item->descricao ?></p>
-                        <a href="/home/verproduto.php?id=<?php echo $item->id ?>" class="btn btn-primary">Go
-                            somewhere</a>
+                        <a href="/home/verproduto.php?id=<?php echo $item->id ?>" class="btn btn-primary">Ver
+                            produto</a>
                     </div>
                 </div>
             </div>
