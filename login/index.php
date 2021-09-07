@@ -18,6 +18,7 @@
             <div
                 class="col-3 rounded d-flex flex-column justify-content-center pt-5 pb-5 bg-light position-absolute login-template">
                 <form action="/login/valida.php" method="POST" class="text-center">
+                    <?php echo (isset($_GET['falha']) ? '<p class="text-danger fw-bold">Dados inválidos</p>' : '') ?>
                     <label for="usuario" class="fw-bold mb-4"> Usuário*
                         <input id="usuario" name="usuario" type="text" class="form-control" />
                         <div id="erroUsuario"></div>
